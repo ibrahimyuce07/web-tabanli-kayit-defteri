@@ -1,0 +1,74 @@
+package com.dao;
+
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.entity.Person;
+
+@Repository
+public class PersonDaoImpl implements PersonDao {
+
+	// inject SessionFactory
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	@Override
+	@Transactional
+	public List<Person> getPersonList() {
+
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// create query (Query is deprecated)
+		TypedQuery<Person> query = currentSession.createQuery("from Person", Person.class);
+		
+		// execute query and get result list
+		List<Person> personList = query.getResultList();
+
+		return personList;
+	}
+
+	@Override
+	@Transactional
+	public void createPerson(Person person) {
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		// save
+		currentSession.saveOrUpdate(person);
+
+	}
+
+	@Override
+	@Transactional
+	public void deletePerson(int theId) {
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// delete object with primary key
+		TypedQuery query = currentSession.createQuery("delete from Person where id=:personId");
+		
+		query.setParameter("personId", theId);
+		
+		query.executeUpdate();
+
+	}
+
+	@Override
+	@Transactional
+	public Person getPerson(int theId) {
+
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		Person person = currentSession.get(Person.class, theId);
+
+		return person;
+	}
+
+}
