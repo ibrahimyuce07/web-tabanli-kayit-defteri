@@ -49,7 +49,6 @@ public class PersonController {
 		dao.createPerson(person);
 		
 		return "redirect:/person/list";
-
 	}
 
 	//Update Person
