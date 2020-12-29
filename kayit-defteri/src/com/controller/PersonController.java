@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import com.service.PersonService;
@@ -12,10 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dao.PersonDao;
 import com.entity.Person;
 
 @Controller
-@RequestMapping("/person")
+@RequestMapping(value = "/person", produces = "text/plain;charset=UTF-8")
 public class PersonController {
 
 	// dependency injection
@@ -23,8 +25,8 @@ public class PersonController {
 	private PersonService personService;
 
 	//List Person
-	@GetMapping("/list")
-	public String getPersonList(Model model) {
+	@GetMapping(value = "/list", produces = "text/plain;charset=UTF-8")
+	public String getPersonList(Model model){
 		List<Person> personList = personService.getPersonList();
 		model.addAttribute("personList", personList);
 		return "list-person";
@@ -39,8 +41,8 @@ public class PersonController {
 	}
 
 	//Create Person
-	@PostMapping("/savePerson")
-	public String createPerson(@ModelAttribute("person") Person person) {
+	@PostMapping(value = "/savePerson", produces = "text/plain;charset=UTF-8")
+	public String createPerson(@ModelAttribute("person") Person person){
 		personService.createPerson(person);
 		return "redirect:/person/list";
 	}

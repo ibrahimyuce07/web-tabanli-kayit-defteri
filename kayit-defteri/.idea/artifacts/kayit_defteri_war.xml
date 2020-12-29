@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="kayit-defteri:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>kayit-defteri</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="kayit-defteri-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="kayit-defteri:war exploded" />
+    </root>
+  </artifact>
+</component>

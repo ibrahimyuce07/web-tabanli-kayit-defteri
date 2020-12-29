@@ -6,12 +6,12 @@ import com.entity.Person;
 
 public interface PersonDao {
 
-	public List<Person> getPersonList();
+    public List<Person> getPersonList();
 
-	public void createPerson(Person person);
+    public void createPerson(Person person);
 
-	public void deletePerson(int theId);
+    public void deletePerson(int theId);
 
-	public Person getPerson(int theId);
+    public Person getPerson(int theId);
 
 }

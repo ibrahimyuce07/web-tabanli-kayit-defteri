@@ -29,7 +29,7 @@ public class PersonServiceImpl implements PersonService {
           personDao.deletePerson(personId);
     }
 
-    @Transactional
+
     public Person getPerson(int personId) {
         return personDao.getPerson(personId);
     }

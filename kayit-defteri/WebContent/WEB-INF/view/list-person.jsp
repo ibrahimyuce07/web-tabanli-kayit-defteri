@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
@@ -14,7 +15,8 @@
 	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
 	crossorigin="anonymous">
 
-<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <title>Person List</title>
 </head>
 
@@ -109,7 +111,7 @@
 </body>
 
 
-<footer class="my-5 pt-5 text-muted text-center text-small fixed-bottom">
+<footer class="my-5 pt-5 text-muted text-center text-small">
 	<p class="mb-1">&copy; İbrahim Yüce</p>
 	<ul class="list-inline">
 		<li class="list-inline-item"><a
