@@ -1,9 +1,7 @@
 package com.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-import com.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,18 +11,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.dao.PersonDao;
 import com.entity.Person;
+import com.service.PersonService;
 
 @Controller
 @RequestMapping(value = "/person", produces = "text/plain;charset=UTF-8")
 public class PersonController {
 
-	// dependency injection
+	
 	@Autowired
 	private PersonService personService;
 
-	//List Person
+
 	@GetMapping(value = "/list", produces = "text/plain;charset=UTF-8")
 	public String getPersonList(Model model){
 		List<Person> personList = personService.getPersonList();
