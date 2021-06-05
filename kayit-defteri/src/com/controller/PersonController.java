@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.entity.Person;
 import com.service.PersonService;
-
-//REFACTOR
-
+//MASTER
 @Controller
 @RequestMapping(value = "/person", produces = "text/plain;charset=UTF-8")
 public class PersonController {
